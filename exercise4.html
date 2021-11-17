@@ -9,30 +9,51 @@
     <meta name="description" content="Exercise 4 of EECS448 Lab 8">
     <meta name="author" content="Yuri Martinez-Moylan">
 	
+	<style>
+		.paragraph {
+			border-style: solid;
+			border-color: red;
+		}
+	</style>
 </head>
 
 <body>
 	<h1>CSS Manipulation</h1>
 	
-	<p class="paragraph">
+	<p id="para" style="border-style: solid;">
 		"to do is to be" - Socrates<br>
 		"to be is to do" - Jean-Paul Sartre<br>
 		"do be do be do" - Frank Sinatra<br>
 	</p>
 	
-	<label for="borderRed">Enter values for border()<br>Red value</label><br>
+	<label for="borderRed">Enter values for border (colors: 0 to 255)<br>Red value</label><br>
 	<input type="text" id="borderRed" name="borderRed"></input><br>
 	<label for="borderGreen">Green value</label><br>
 	<input type="text" id="borderGreen" name="borderGreen"></input><br>
 	<label for="borderBlue">Blue value</label><br>
 	<input type="text" id="borderBlue" name="borderBlue"></input><br>
-	<label for="borderWidth">Width</label><br>
+	<label for="borderWidth">Width (in px)</label><br>
 	<input type="text" id="borderWidth" name="borderWidth"></input><br><br>
 	
-	<input type="button" value="Apply Changes"></input>
+	<input type="button" value="Apply Changes" onClick="changeStyle()"></input>
 </body>
 
 <script>
-
+	var redBorIn;
+	var greenBorIn;
+	var blueBorIn;
+	var borWidth;
+	
+	window.onload = function () {
+		redBorIn = document.getElementById("borderRed");
+		greenBorIn = document.getElementById("borderGreen");
+		blueBorIn = document.getElementById("borderBlue");
+		borWidth = document.getElementById("borderWidth");
+	}
+	
+	function changeStyle() {
+		document.getElementById("para").style.borderColor = "rgb("+redBorIn.value+", "+greenBorIn.value+", "+blueBorIn.value+")";
+		document.getElementById("para").style.borderWidth = borWidth.value+"px";
+	}
 </script>
 </html>

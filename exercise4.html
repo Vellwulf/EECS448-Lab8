@@ -35,6 +35,13 @@
 	<label for="borderWidth">Width (in px)</label><br>
 	<input type="text" id="borderWidth" name="borderWidth"></input><br><br>
 	
+	<label for="backgroundRed">Enter values for background (colors: 0 to 255)<br>Red value</label><br>
+	<input type="text" id="backgroundRed" name="backgroundRed"></input><br>
+	<label for="backgroundGreen">Green value</label><br>
+	<input type="text" id="backgroundGreen" name="backgroundGreen"></input><br>
+	<label for="backgroundBlue">Blue value</label><br>
+	<input type="text" id="backgroundBlue" name="backgroundBlue"></input><br><br>
+	
 	<input type="button" value="Apply Changes" onClick="changeStyle()"></input>
 </body>
 
@@ -43,17 +50,28 @@
 	var greenBorIn;
 	var blueBorIn;
 	var borWidth;
+	var redBacIn;
+	var greenBacIn;
+	var blueBacIn;
+	var paragraph
 	
 	window.onload = function () {
 		redBorIn = document.getElementById("borderRed");
 		greenBorIn = document.getElementById("borderGreen");
 		blueBorIn = document.getElementById("borderBlue");
 		borWidth = document.getElementById("borderWidth");
+		
+		redBacIn = document.getElementById("backgroundRed");
+		greenBacIn = document.getElementById("backgroundGreen");
+		blueBacIn = document.getElementById("backgroundBlue");
+		
+		paragraph = document.getElementById("para");
 	}
 	
 	function changeStyle() {
-		document.getElementById("para").style.borderColor = "rgb("+redBorIn.value+", "+greenBorIn.value+", "+blueBorIn.value+")";
-		document.getElementById("para").style.borderWidth = borWidth.value+"px";
+		paragraph.style.borderColor = "rgb("+redBorIn.value+", "+greenBorIn.value+", "+blueBorIn.value+")";
+		paragraph.style.borderWidth = borWidth.value+"px";
+		paragraph.style.backgroundColor = "rgb("+redBacIn.value+", "+greenBacIn.value+", "+blueBacIn.value+")";
 	}
 </script>
 </html>

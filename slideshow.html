@@ -13,10 +13,10 @@
 <body>
 	<h1 style="text-align:center;">Image SlideShow</h1>
 	
-	<img src="slideshow-images/never.jpg" align="center" style="width:600px; height:500px; display: block; margin-left: auto; margin-right: auto"></img><br>
+	<img id="pic" src="slideshow-images/never.jpg" align="center" style="width:600px; height:500px; display: block; margin-left: auto; margin-right: auto"></img><br>
 	<div style="text-align:center;">
 		<input type="button" value="previous" style="text-align:center;"></input>
-		<input type="button" value="next" style="text-align:center;"></input>
+		<input type="button" value="next" style="text-align:center;" onclick="nextPic()"></input>
 	</div>
 </body>
 
@@ -31,6 +31,16 @@
 		imageSrc[3] = "slideshow-images/you.jpg";
 		imageSrc[4] = "slideshow-images/up.jpg";
 		imageSrc[5] = "slideshow-images/rick.jpg";
+	}
+	
+	function nextPic() {
+		currentPic++;
+		
+		if (currentPic > imageSrc.length - 1) {
+			currentPic = 0;
+		}
+		
+		document.getElementById("pic").src = imageSrc[currentPic];
 	}
 </script>
 </html>
